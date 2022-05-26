@@ -84,7 +84,8 @@ def playnote(note, chord_style):
             y+=1
             n+=1
 
-        stream.write(wavedata)
+        stream.write(wavedata.astype(np.float32).tostring())
+        # stream.write(float(wavedata).tostring())
 
     stream.stop_stream()
     stream.close()
